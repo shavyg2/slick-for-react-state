@@ -1,0 +1,21 @@
+{
+  "name": "@slick-for/react-state",
+  "version": "1.0.0",
+  "description": "Render React state with ease",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "react": "^16.12.0"
+  },
+  "dependencies": {
+    "@types/react": "^16.9.22"
+  },
+  "devDependencies": {
+    "typescript": "^3.8.2"
+  }
+}
