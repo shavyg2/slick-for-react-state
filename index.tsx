@@ -17,6 +17,8 @@ export function currentTarget(func:any){
 
 export function createStateElement<S, V extends ValueShape<S>>({ state,values}:{state:S,values?:V}) {
     const define:{state:S,values:V} = {state:state||{},values:values||{}} as any;
+    values = define.values;
+    state = define.state;
 
     return function <S extends typeof define.state, V extends Readonly<typeof define.values>,A extends { [key: string]: (s: S & ValueResult<V, S>) => void }>(methods: { actions: A }) {
         methods.actions = methods.actions || {};
