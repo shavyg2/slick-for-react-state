@@ -1,12 +1,12 @@
 {
   "name": "@slick-for/react-state",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Render React state with ease",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx tsc",
-    "release":"npm publish --access public"
+    "release": "npm publish --access public"
   },
   "keywords": [],
   "author": "",
