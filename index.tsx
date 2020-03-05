@@ -36,7 +36,7 @@ export function createStateElement<S, V extends ValueShape<S>>({ state,values}:{
 }
 
 
-function build<S, V extends ValueShape<S>, A extends { [key: string]: (s: S & ValueResult<V, S>) => void }>(state: S, values: V, actions: A) {
+function build<S, V extends ValueShape<S>, A extends { [key: string]: (s: S & ValueResult<V, S>) => any }>(state: S, values: V, actions: A) {
 
     const stateKeys = Object.keys(state) as unknown as Array<keyof typeof state>;
     const ValueKeys: Map<string, any> = new Map();
@@ -141,7 +141,7 @@ function build<S, V extends ValueShape<S>, A extends { [key: string]: (s: S & Va
 
 export function createContextElement<S,V extends ValueShape<S>>({ state,values}:{state:S,values?:V}){
     const define:{state:S,values:V} = {state:state,values:values||{}} as any;
-    return function<A extends { actions: { [key: string]: (s: S & ValueResult<Readonly<V>, S>) => void; }; }>(action:A){
+    return function<A extends { actions: { [key: string]: (s: S & ValueResult<Readonly<V>, S>) => any; }; }>(action:A){
         const {Element,props} = createStateElement<S,V>(define)(action);
         const context = React.createContext(define as any as typeof props)
         function ContextElement(p:any){
