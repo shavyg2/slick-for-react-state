@@ -1,6 +1,6 @@
 {
   "name": "@slick-for/react-state",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Render React state with ease",
   "main": "index.js",
   "scripts": {
