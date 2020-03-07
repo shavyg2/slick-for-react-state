@@ -21,9 +21,7 @@ export function createStateElement<S, V extends ValueShape<S>>({ state,values}:{
     state = define.state;
 
     return function <S extends typeof define.state, V extends Readonly<typeof define.values>,A extends { [key: string]: (s: S & ValueResult<V, S>) => void }>(methods: { actions: A }) {
-        methods.actions = methods.actions || {};
-        methods.actions = methods.actions || {};
-        
+        methods.actions = methods.actions || {} as any as A;
         const Ready = build(define.state, define.values, methods.actions as any);
 
         let props!:ViewProps<S & Readonly<ValueResult<V,S>>> & NoArgument<typeof methods.actions>
@@ -130,7 +128,8 @@ function build<S, V extends ValueShape<S>, A extends { [key: string]: (s: S & Va
         let props!:ViewProps<S & ValueResult<V,S>> & A;
         return {
             Element:Element as any as Renderer<typeof props>,
-            props
+            props,
+            state:null as any as S
         };
     }
 
