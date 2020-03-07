@@ -4,7 +4,7 @@ import React from "react";
 export type ValueShape<S> = { [key: string]: (state: S) => () => any }
 export type ValueResult<T extends ValueShape<S>, S> = { [key in keyof T]: ReturnType<ReturnType<T[key]>> }
 type ViewProps<S> = {state:S}
-type Renderer<P> = (props:{view:(props:P)=>JSX.Element})=>JSX.Element
+type Renderer<P> = (props:{view:(props:P)=>JSX.Element,[key:string]:any})=>JSX.Element
 type NoArgument<T> = {[key in keyof T]:()=>void}
 
 
