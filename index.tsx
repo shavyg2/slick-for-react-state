@@ -93,13 +93,15 @@ function build<S, V extends ValueShape<S>, A extends { [key: string]: (s: S & Va
                 },
                 set(value) {
                     state[key][1](value);
-                }
+                },
+                enumerable:true
             })
         })
 
         Object.keys(values).forEach((key) => {
             Object.defineProperty(proxy, key, {
-                value: values[key]
+                value: values[key],
+                enumerable:true
             })
         })
 
